@@ -28,6 +28,7 @@ function handleSubmit(event) {
   /// --------------- at this point you know which item was picked from the list, how many ----------- ///
   // Do all the things ...
   addSelectedItemToCart();
+  // you can theoretically add parameters/arguments to a function being called
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
