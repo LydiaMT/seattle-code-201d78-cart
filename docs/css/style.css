@@ -61,7 +61,7 @@ legend {
 select, 
 input,
 button {
-  width: 120px;
+  width: 100px;
   background-color: #e8e8e4;
   border: #afb8b2 3px solid;
   border-radius: 10px;
@@ -99,7 +99,7 @@ h4 {
   width: 117px;
   height: 180px;
   margin: auto;
-  border-radius: 10px;
+  background-color: #f8edeb;
   border: 4px solid #fec89a;
 }
 
