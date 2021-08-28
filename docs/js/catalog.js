@@ -20,6 +20,19 @@ function populateForm() {
   }
 }
 
+function displayAllItems(){
+  const productList = document.getElementById('displayCart')
+  for(let i = 0; i < Product.allProducts.length; i++){
+    let productCard = document.createElement('section');
+    productList.append(productCard)
+    let productTitle = document.createElement('h4');
+    productTitle.textContent = Product.allProducts[i].name;
+    let productImg = document.createElement('img');
+    productImg.src = Product.allProducts[i].filePath;
+    productCard.append(productTitle, productImg);
+  }
+}
+
 // When someone submits the form, we need to add the selected item to the cart
 // object, save the whole thing back to local storage and update the screen
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
@@ -33,7 +46,6 @@ function handleSubmit(event) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-
 }
 
 // TODO: Add the selected item and quantity to the cart
@@ -91,3 +103,5 @@ catalogForm.addEventListener('submit', handleSubmit);
 populateForm();
 updateCounter();
 updateCartPreview();
+displayAllItems()
+console.log(cart);
