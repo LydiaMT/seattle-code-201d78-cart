@@ -40,7 +40,7 @@ function showCart() {
     let tableRow = document.createElement('tr');
     tableBody.append(tableRow);
     let removeTD = document.createElement('td');
-    removeTD.textContent = '❌';
+    removeTD.textContent = '✖️';
     removeTD.id = item.name
     tableRow.append(removeTD)
     let productTD = document.createElement('td');
