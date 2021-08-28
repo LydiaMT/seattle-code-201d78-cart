@@ -104,4 +104,3 @@ populateForm();
 updateCounter();
 updateCartPreview();
 displayAllItems()
-console.log(cart);
