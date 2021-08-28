@@ -4,6 +4,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   height: 100vh;
+  box-sizing: border-box;
 }
 
 header {
@@ -51,23 +52,26 @@ fieldset {
 }
 
 legend {
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
 }
 
 select, 
-input {
+input,
+button {
   width: 100px;
 }
 
 .cart-items {
   width: 500px;
   margin: auto;
+  border: 4px solid blueviolet;
 }
 
 .cart-items div {
   padding: 5px;
   font-size: 20px;
+
 }
 
 footer {
@@ -80,4 +84,27 @@ footer {
 footer p {
   text-align: center;
   padding: 20px;
+}
+
+.cart-table {
+  width: 500px;
+  margin: auto;
+}
+
+table {
+  margin: 5px;
+  width: 100%;
+}
+
+tr, th, td {
+  border: blueviolet 2px solid;
+  padding: 5px;
+}
+
+.cart-table button {
+  width: 200px;
+
+  margin: auto;
+  justify-content: center;
+  display: flex;
 }

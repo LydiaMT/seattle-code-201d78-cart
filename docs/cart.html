@@ -11,7 +11,7 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="cart.html">Cart</a><span id="itemCount"></span></li>
+        <li><a href="cart.html">Cart 🛒</a><span id="itemCount"></span></li>
       </ul>
     </nav>
   </header>
@@ -23,13 +23,13 @@
         </header>
         <div class="copy">
           <ol>
-            <li>Click the "X" next to any item to remove it from your cart</li>
+            <li>Click the ❌ next to any item to remove it from your cart</li>
           </ol>
         </div>
       </div>
     </section>
     <section class="deck col-1">
-      <div id="cart-container" class="card">
+      <div id="cart-container" class="cart-table">
         <table id="cart">
           <thead>
             <tr>
@@ -41,6 +41,7 @@
           <tbody></tbody>
           <tfoot></tfoot>
         </table>
+        <button id="empty-storage">Clear Cart</button>
       </div>
     </section>
   </main>

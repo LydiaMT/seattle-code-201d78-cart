@@ -14,11 +14,19 @@ function loadCart() {
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
 function renderCart() {
   loadCart();
-  clearCart();
+  // clearCart();
   showCart();
 }
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
-function clearCart() {}
+let clearLocalStorage = document.getElementById('empty-storage');
+clearLocalStorage.addEventListener('click', clearCart)
+
+function clearCart() {
+  localStorage.clear()
+  let tableBody = document.querySelector('tbody')
+  tableBody.querySelectorAll('*').forEach(n => n.remove());
+
+}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
@@ -35,7 +43,7 @@ function showCart() {
     let tableRow = document.createElement('tr');
     tableBody.append(tableRow);
     let removeTD = document.createElement('td');
-    removeTD.textContent = 'X';
+    removeTD.textContent = '❌';
     removeTD.id = item.name
     tableRow.append(removeTD)
     let productTD = document.createElement('td');
