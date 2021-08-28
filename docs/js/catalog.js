@@ -59,8 +59,10 @@ function updateCounter() {
   let cartTotal = document.getElementById('itemCount');
   let counter = 0;
   cartTotal.textContent = counter;
-  for( let item of cart.items ){
-    counter += parseInt(item.quantity);
+  if(cart.items !== 0){
+    for( let item of cart.items ){
+      counter += parseInt(item.quantity);
+    }
   }
   return cartTotal.textContent = counter;
 }
