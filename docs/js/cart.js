@@ -14,7 +14,6 @@ function loadCart() {
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
 function renderCart() {
   loadCart();
-  // clearCart();
   showCart();
 }
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
@@ -25,7 +24,6 @@ function clearCart() {
   localStorage.clear()
   let tableBody = document.querySelector('tbody')
   tableBody.querySelectorAll('*').forEach(n => n.remove());
-
 }
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
@@ -33,9 +31,8 @@ function showCart() {
   // TODO: Find the table body
   /// ------------------ querySelector ---------------------------///
   let tableBody = document.querySelector('tbody')
-  // TODO: Iterate over the items in the cart
   tableBody.querySelectorAll('*').forEach(n => n.remove());
-
+  // TODO: Iterate over the items in the cart
   for(let item of cart.items){
     // TODO: Create a TR
     // TODO: Create a TD for the delete link, quantity,  and the item
@@ -50,8 +47,19 @@ function showCart() {
     productTD.textContent = item.name;
     tableRow.append(productTD);
     let quantityTD = document.createElement('td');
-    quantityTD.textContent = item.quantity;
     tableRow.append(quantityTD);
+    // Give user the ability to update item quantity
+    let editQuantity = document.createElement('input')
+    editQuantity.type = 'number';
+    editQuantity.min = 1;
+    editQuantity.max = 100;
+    editQuantity.value = item.quantity
+    editQuantity.addEventListener('change', function(event){
+      item.quantity = event.target.value;
+      cart.saveToLocalStorage();
+      showCart();
+    });
+    quantityTD.append(editQuantity)
   }
 }
 

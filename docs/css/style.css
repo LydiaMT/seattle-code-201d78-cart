@@ -108,3 +108,10 @@ tr, th, td {
   justify-content: center;
   display: flex;
 }
+
+td input{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: large;
+}
