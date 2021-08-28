@@ -58,13 +58,13 @@ function addSelectedItemToCart(e) {
 function updateCounter() {
   let cartTotal = document.getElementById('itemCount');
   let counter = 0;
-  cartTotal.textContent = counter;
+  cartTotal.textContent = `( ${counter} )`;
   if(cart.items !== 0){
     for( let item of cart.items ){
       counter += parseInt(item.quantity);
     }
   }
-  return cartTotal.textContent = counter;
+  return cartTotal.textContent = `( ${counter} )`;
 }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
@@ -88,7 +88,6 @@ catalogForm.addEventListener('submit', handleSubmit);
 
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
-
 populateForm();
 updateCounter();
 updateCartPreview();

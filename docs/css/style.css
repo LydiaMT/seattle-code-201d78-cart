@@ -1,1 +1,83 @@
-/* TODO: Make it awesome */
+body {
+  margin: auto 0;
+  background-color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  height: 100vh;
+}
+
+header {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+nav {
+  width: 175px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 36px;
+  margin: auto;
+}
+
+.copy {
+  margin: auto;
+  width: 500px;
+}
+
+.copy ol li {
+  padding: 5px;
+}
+
+fieldset {
+  padding: 5px;
+}
+
+legend {
+  font-size: 20px;
+  text-align: center;
+}
+
+select, 
+input {
+  width: 100px;
+}
+
+.cart-items {
+  width: 500px;
+  margin: auto;
+}
+
+.cart-items div {
+  padding: 5px;
+  font-size: 20px;
+}
+
+footer {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  background-color: cadetblue;
+}
+
+footer p {
+  text-align: center;
+  padding: 20px;
+}

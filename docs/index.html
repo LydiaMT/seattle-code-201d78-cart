@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>Bus Mall Store</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-
   <body>
-
     <header>
       <h1>Bus Mall Store</h1>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="cart.html">Cart</a><span id="itemCount"></span></li>
+          <li><a href="cart.html">Cart 🛒</a><span id="itemCount"></span></li>
         </ul>
       </nav>
     </header>
-
     <main>
-
       <section class="deck col-1">
         <div class="card">
           <header>
-            <h1>Shop Our Catalog</h1>
+            <h2>Shop Our Catalog</h2>
           </header>
           <div class="copy">
             <ol>
@@ -35,7 +30,6 @@
           </div>
         </div>
       </section>
-
       <section class="deck col-2">
         <div class="card">
           <div class="copy">
@@ -43,29 +37,25 @@
               <fieldset>
                 <legend>Catalog</legend>
                 <label>
-                  <span>Item</span>
+                  <span>Item:</span>
                   <select id="items"></select>
                 </label>
                 <label>
-                  <span>Quantity</span>
-                  <input id="quantity" type="number" />
+                  <span>Quantity:</span>
+                  <input id="quantity" type="number" required/>
                 </label>
                 <input type="submit" value="Add To Cart" />
               </fieldset>
             </form>
           </div>
         </div>
-        <div class="card" id="cartContents"></div>
+        <div class="cart-items" id="cartContents"></div>
       </section>
-
     </main>
-
     <footer>
-      <p>&copy;2018 Code Fellows 201d33</p>
+      <p>Vanilla Shopping Cart 2021</p>
     </footer>
-
     <script src='js/app.js'></script>
     <script src='js/catalog.js'></script>
   </body>
-
 </html>
