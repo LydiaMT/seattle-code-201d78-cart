@@ -1,27 +1,25 @@
 'use strict';
 
-// Cart constructor.
+// Cart constructor
 const Cart = function(items) {
-  // this.items is an array of CartItem instances.
-  this.items = items;
+  this.items = items; //array of CartItem instances.
 };
 
-Cart.prototype.addItem = function(product, quantity) {
-  // DONE: Fill in this instance method to create a new CartItem and add it to this.items
-  const myCartItem = new CartItem(product, quantity);
+// CART INSTANT METHODS
+// to create a new CartItem and add it to this.items
+Cart.prototype.addItem = function(product, quantity) { 
+  const myCartItem = new CartItem(product, quantity); 
   this.items.push(myCartItem);
 };
 
-Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
+// save the contents of the cart to localStorage
+Cart.prototype.saveToLocalStorage = function() { 
   let localStorageData = JSON.stringify(this.items)
   localStorage.setItem('cart', localStorageData);
 };
 
-Cart.prototype.removeItem = function(product) {
-  // TODO: Fill in this instance method to remove one item from the cart.
-  // Note: You will have to decide what kind of parameter to pass in here!
-  /// ----------------- try googling splice ------------- ///
+// remove one item from the cart
+Cart.prototype.removeItem = function(product) { 
   for(let i = 0; i < cart.items.length; i++){
     if(cart.items[i].name === product.target.id){
       cart.items.splice(i, 1)
@@ -34,7 +32,7 @@ const CartItem = function(product, quantity) {
   this.quantity = quantity;
 };
 
-// Product contructor
+// Product constructor
 const Product = function(filePath, name) {
   this.filePath = filePath;
   this.name = name;
@@ -64,13 +62,19 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
-// Utility funciton 
+// UTILITY FUNCTIONS
 function makeElementAndAppend(element, parent, attributes = {}){
   const e = document.createElement(element);
   for(const [key, value] of Object.entries(attributes)) {
     e[key] = value;
   }
   parent.append(e);
+  return e;
+}
+
+function removeChildren(element){
+  let e = document.querySelector(element)
+  e.querySelectorAll('*').forEach(n => n.remove());
   return e;
 }
 

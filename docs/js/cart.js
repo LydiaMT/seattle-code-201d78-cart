@@ -16,57 +16,39 @@ function renderCart() {
   loadCart();
   showCart();
 }
-// TODO: Remove all of the rows (tr) in the cart table (tbody)
-let clearLocalStorage = document.getElementById('empty-storage');
+
+let clearLocalStorage = document.getElementById('empty-storage'); // Remove all of the rows (tr) in the cart table (tbody)
 clearLocalStorage.addEventListener('click', clearCart)
 
 function clearCart() {
   localStorage.clear()
-  let tableBody = document.querySelector('tbody')
-  tableBody.querySelectorAll('*').forEach(n => n.remove());
+  removeChildren('tbody')
 }
 
-// TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-  // TODO: Find the table body
-  /// ------------------ querySelector ---------------------------///
-  let tableBody = document.querySelector('tbody')
-  tableBody.querySelectorAll('*').forEach(n => n.remove());
-  // TODO: Iterate over the items in the cart
-  for(let item of cart.items){
-    // TODO: Create a TR
-    // TODO: Create a TD for the delete link, quantity,  and the item
-    // TODO: Add the TR to the TBODY and each of the TD's to the TR
+  let tableBody = removeChildren('tbody')   // Find the table body & remove the children
+  for(let item of cart.items){ // Iterate over the items in the cart
+    // Create a TR. Create a TD for the delete link, quantity, & item. Add the TR to the TBODY and each of the TD's to the TR
     let tableRow = makeElementAndAppend('tr', tableBody)
     makeElementAndAppend('td', tableRow, { textContent: '✖️', id: item.name })
     makeElementAndAppend('td', tableRow, { textContent: item.name })
     let quantityTD = makeElementAndAppend('td', tableRow)
-    // edit cart items
-    let editQuantity = document.createElement('input')
-    editQuantity.type = 'number';
-    editQuantity.min = 1;
-    editQuantity.max = 100;
-    editQuantity.value = item.quantity
-    editQuantity.addEventListener('change', editQuantityHandler(item));
-    quantityTD.append(editQuantity)
+    let editQuantity = makeElementAndAppend('input', quantityTD, { type: 'number', min: 1, max: 100, value: item.quantity })
+    editQuantity.addEventListener('change', editQuantityHandler(item)); // Change event listening for the user to update an item quantity
   }
 }
 
-const editQuantityHandler = (item) => (event) => {
+const editQuantityHandler = (item) => (event) => { // curried function
   item.quantity = event.target.value;
   cart.saveToLocalStorage();
   showCart();
 }
 
 function removeItemFromCart(event) {
-  // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
-  cart.removeItem(event)
-  // TODO: Save the cart back to local storage
-  cart.saveToLocalStorage();
-  // TODO: Re-draw the cart table
-  showCart() 
+  cart.removeItem(event) //  When a delete link is clicked, use cart.removeItem to remove the correct item
+  cart.saveToLocalStorage(); // Save the cart back to local storage
+  showCart() // Re-draw the cart table
 }
 
 // This will initialize the page and draw the cart on screen
 renderCart();
-
