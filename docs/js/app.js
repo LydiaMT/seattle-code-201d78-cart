@@ -64,5 +64,15 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
+// Utility funciton 
+function makeElementAndAppend(element, parent, attributes = {}){
+  const e = document.createElement(element);
+  for(const [key, value] of Object.entries(attributes)) {
+    e[key] = value;
+  }
+  parent.append(e);
+  return e;
+}
+
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();

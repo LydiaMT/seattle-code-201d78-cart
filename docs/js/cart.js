@@ -37,30 +37,25 @@ function showCart() {
     // TODO: Create a TR
     // TODO: Create a TD for the delete link, quantity,  and the item
     // TODO: Add the TR to the TBODY and each of the TD's to the TR
-    let tableRow = document.createElement('tr');
-    tableBody.append(tableRow);
-    let removeTD = document.createElement('td');
-    removeTD.textContent = '✖️';
-    removeTD.id = item.name
-    tableRow.append(removeTD)
-    let productTD = document.createElement('td');
-    productTD.textContent = item.name;
-    tableRow.append(productTD);
-    let quantityTD = document.createElement('td');
-    tableRow.append(quantityTD);
-    // Give user the ability to update item quantity
+    let tableRow = makeElementAndAppend('tr', tableBody)
+    makeElementAndAppend('td', tableRow, { textContent: '✖️', id: item.name })
+    makeElementAndAppend('td', tableRow, { textContent: item.name })
+    let quantityTD = makeElementAndAppend('td', tableRow)
+    // edit cart items
     let editQuantity = document.createElement('input')
     editQuantity.type = 'number';
     editQuantity.min = 1;
     editQuantity.max = 100;
     editQuantity.value = item.quantity
-    editQuantity.addEventListener('change', function(event){
-      item.quantity = event.target.value;
-      cart.saveToLocalStorage();
-      showCart();
-    });
+    editQuantity.addEventListener('change', editQuantityHandler(item));
     quantityTD.append(editQuantity)
   }
+}
+
+const editQuantityHandler = (item) => (event) => {
+  item.quantity = event.target.value;
+  cart.saveToLocalStorage();
+  showCart();
 }
 
 function removeItemFromCart(event) {
